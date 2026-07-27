@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build the Essay | The end of the Cold War | Kula Revise</title>
+<style>
+  :root {
+    --cement: #D9D5CE; --slab: #F2F0EB; --chalk: #FFFFFF; --ink: #1D1F24;
+    --spray: #B7362A; --steel: #4C5A66; --moss: #4B6B4F; --fade: #7B786F;
+    --edge: rgba(29,31,36,0.16);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background:
+      repeating-linear-gradient(90deg, rgba(29,31,36,0.035) 0 1px, transparent 1px 108px),
+      repeating-linear-gradient(0deg, rgba(29,31,36,0.03) 0 1px, transparent 1px 148px),
+      var(--cement);
+    padding: 1.6rem 1rem 3rem;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: var(--ink); line-height: 1.6; -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 720px; margin: 0 auto; }
+  .top-bar { margin-bottom: 1.6rem; }
+  .top-meta { display: flex; justify-content: space-between; align-items: baseline; font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--steel); font-weight: 700; margin-bottom: 0.55rem; gap: 1rem; flex-wrap: wrap; }
+  .top-count { color: var(--fade); font-weight: 400; letter-spacing: 0.12em; }
+  .track { height: 4px; background: rgba(29,31,36,0.12); overflow: hidden; }
+  .fill { height: 100%; background: var(--spray); transition: width 0.35s ease; width: 0%; }
+  .header-block { text-align: left; margin-bottom: 2rem; padding-bottom: 1.2rem; }
+  .eyebrow { font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--spray); font-weight: 700; margin-bottom: 1rem; }
+  .masthead { font-size: clamp(2.1rem,6.4vw,3.3rem); font-weight: 800; line-height: 1.02; letter-spacing: -0.03em; }
+  .sub { font-size: 0.95rem; color: var(--fade); margin-top: 0.7rem; letter-spacing: 0.02em; }
+  .rule { width: 100%; height: 0; margin: 1.5rem 0 0; border: 0; position: relative; }
+  .rule::before { content: ""; display: block; height: 9px; background:
+      linear-gradient(to right, var(--spray) 0 34%, transparent 34% 36%, var(--steel) 36% 68%, transparent 68% 70%, rgba(29,31,36,0.25) 70% 100%); }
+  .intro-box { background: var(--slab); border: 1px solid var(--edge); border-top: 5px solid var(--steel); padding: 1.3rem 1.5rem; margin-bottom: 1.4rem; }
+  .intro-label { font-size: 0.64rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--steel); font-weight: 700; margin-bottom: 0.6rem; }
+  .intro-text { line-height: 1.7; font-size: 1rem; margin-bottom: 0.8rem; }
+  .intro-text:last-child { margin-bottom: 0; }
+  .key-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 0.7rem; margin-bottom: 1.8rem; }
+  .key-item { display: flex; flex-direction: column; gap: 0.45rem; padding: 0.85rem; background: var(--slab); border: 1px solid var(--edge); }
+  .chip { display: inline-block; padding: 0.24rem 0.7rem; font-size: 0.64rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; width: fit-content; }
+  .chip-argue { background: var(--spray); color: var(--chalk); }
+  .chip-evidence { background: var(--steel); color: var(--chalk); }
+  .chip-weigh { background: var(--ink); color: var(--cement); }
+  .chip-instinct { background: rgba(29,31,36,0.1); color: var(--ink); }
+  .chip-knowledge { background: var(--spray); color: var(--chalk); }
+  .chip-interpretation { background: var(--steel); color: var(--chalk); }
+  .chip-evaluation { background: var(--ink); color: var(--cement); }
+  .key-desc { font-size: 0.82rem; color: var(--fade); }
+  .card { background: var(--slab); border: 1px solid var(--edge); border-top: 5px solid var(--spray); padding: 1.7rem 1.5rem; margin-bottom: 1.3rem; }
+  .stage-tag { font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--steel); font-weight: 700; margin-bottom: 0.9rem; }
+  .qhead { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .section-label { font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--fade); }
+  .card h2 { font-size: 1.45rem; font-weight: 800; line-height: 1.18; letter-spacing: -0.02em; margin-bottom: 0.9rem; }
+  .card p { font-size: 1rem; line-height: 1.72; margin-bottom: 0.9rem; }
+  .card p:last-child { margin-bottom: 0; }
+  .pull { border-left: 4px solid var(--spray); padding-left: 1rem; font-weight: 600; margin: 1.1rem 0; }
+  .scenario { background: var(--chalk); border: 1px solid var(--edge); border-left: 5px solid var(--steel); padding: 1.2rem 1.3rem; margin: 1.1rem 0 0.2rem; font-size: 1.02rem; line-height: 1.72; }
+  .scenario-meta { padding: 0.6rem 0 0; font-size: 0.78rem; color: var(--fade); text-align: right; letter-spacing: 0.04em; }
+  .source { background: var(--chalk); border: 1px solid var(--edge); padding: 1.25rem 1.3rem 0; margin: 1.1rem 0; }
+  .source-body { font-size: 0.99rem; line-height: 1.75; }
+  .source-body em { color: var(--steel); font-style: normal; font-weight: 700; }
+  .source { display: flex; flex-direction: column; }
+  .source-body { order: 1; }
+  .source .evtag { order: 2; align-self: flex-start; }
+  .source > div:not([class]) { order: 3; }
+  .toggle-body { order: 4; }
+  .source-attr { order: 5; margin: 1.1rem -1.3rem 0; padding: 0.75rem 1.3rem; background: var(--cement); font-size: 0.69rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); line-height: 1.6; font-weight: 700; }
+  .toggle-btn { background: transparent; border: none; color: var(--spray); cursor: pointer; font-family: inherit; font-weight: 700; font-size: 0.84rem; letter-spacing: 0.04em; text-decoration: underline; padding: 0.85rem 0; }
+  .toggle-body { display: none; margin: 0 0 1.1rem; padding-top: 0.2rem; border-top: 2px solid var(--cement); font-size: 0.92rem; color: var(--ink); line-height: 1.7; padding-top: 0.8rem; }
+  .toggle-body.open { display: block; }
+  .evtag { display: inline-block; margin: 1rem 0 0; font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 800; padding: 0.3rem 0.7rem; }
+  .evtag.home { background: rgba(183,54,42,0.14); color: var(--spray); }
+  .evtag.ground { background: rgba(76,90,102,0.16); color: var(--steel); }
+  .evtag.exit { background: rgba(75,107,79,0.16); color: var(--moss); }
+  .imgslot { margin: 1rem 0 0.2rem; padding: 1.5rem 1rem; border: 2px dashed rgba(29,31,36,0.28); text-align: center; font-size: 0.8rem; color: var(--fade); background: rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+  .figure { margin: 1rem 0 0.3rem; }
+  .figure img { display: block; height: auto; border: 1px solid var(--edge); margin: 0 auto; }
+  .figure.wide img { width: 100%; max-width: 460px; }
+  .figure.portrait img { width: 100%; max-width: 320px; }
+  .figure figcaption { font-size: 0.78rem; color: var(--fade); margin-top: 0.6rem; line-height: 1.6; text-align: center; }
+
+  .q-text { font-size: 1.18rem; line-height: 1.5; font-weight: 600; margin-bottom: 1.2rem; letter-spacing: -0.01em; }
+  .options { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.2rem; }
+  .option { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.95rem 1.05rem; background: var(--chalk); border: 1px solid var(--edge); cursor: pointer; font-family: inherit; text-align: left; font-size: 0.95rem; line-height: 1.55; color: var(--ink); transition: all 0.18s; width: 100%; }
+  .option:hover:not(:disabled) { border-color: var(--steel); background: #fbfaf8; }
+  .option:disabled { cursor: default; }
+  .option.selected { border-color: var(--steel); border-width: 2px; padding: 0.89rem 0.99rem; }
+  .option.correct { background: #ECF2EC; border-color: var(--moss); border-width: 2px; padding: 0.89rem 0.99rem; }
+  .option.wrong { background: #F7E5E2; border-color: var(--spray); border-width: 2px; padding: 0.89rem 0.99rem; }
+  .option.dimmed { opacity: 0.48; }
+  .opt-letter { font-weight: 800; color: var(--steel); min-width: 1.1rem; }
+  .opt-text { flex: 1; }
+  .opt-mark { font-weight: 800; font-size: 1.1rem; }
+  .explanation { background: var(--chalk); border: 1px solid var(--edge); border-left: 5px solid var(--steel); padding: 1.1rem 1.2rem; margin-bottom: 0.3rem; }
+  .expl-label { font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--steel); font-weight: 800; margin-bottom: 0.55rem; }
+  .expl-text { line-height: 1.7; font-size: 0.94rem; }
+  .skill-callout { background: rgba(76,90,102,0.09); border: 1px solid rgba(76,90,102,0.25); padding: 1rem 1.2rem; margin: 1.1rem 0; }
+  .skill-list { margin: 0.5rem 0 0 0; padding-left: 1.1rem; }
+  .skill-list li { font-size: 0.93rem; line-height: 1.65; margin-bottom: 0.35rem; }
+
+  .nav { display: flex; justify-content: space-between; gap: 0.8rem; margin-top: 0.4rem; }
+  .btn-secondary { padding: 0.75rem 1.2rem; background: transparent; border: 1px solid rgba(29,31,36,0.3); color: var(--ink); font-family: inherit; font-size: 0.88rem; cursor: pointer; font-weight: 600; letter-spacing: 0.04em; }
+  .btn-secondary:hover:not(:disabled) { background: var(--slab); }
+  .btn-secondary:disabled { opacity: 0.35; cursor: not-allowed; }
+  .btn-primary { padding: 0.8rem 1.5rem; background: var(--spray); border: none; color: var(--chalk); font-family: inherit; font-size: 0.92rem; cursor: pointer; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .btn-primary:hover:not(:disabled) { background: #97291f; }
+  .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+  .btn-start { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.4rem; background: var(--ink); color: var(--cement); border: none; cursor: pointer; font-family: inherit; text-align: left; transition: all 0.2s; }
+  .btn-start:hover { background: #101216; }
+  .btn-start .st { font-size: 1.1rem; font-weight: 800; letter-spacing: -0.01em; }
+  .btn-start .sa { font-size: 1.3rem; color: var(--spray); }
+  .score-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)); gap: 0.9rem; margin-bottom: 1.4rem; }
+  .score-block { background: var(--slab); border: 1px solid var(--edge); border-top: 5px solid var(--steel); padding: 1.3rem 0.8rem; text-align: center; }
+  .score-num { font-size: 2.6rem; font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -0.03em; }
+  .score-num.red { color: var(--spray); }
+  .score-den { font-size: 1.1rem; color: var(--fade); font-weight: 400; }
+  .score-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--fade); margin-top: 0.55rem; font-weight: 700; }
+  .grade-desc { text-align: center; margin-bottom: 1.6rem; padding: 0 0.5rem; line-height: 1.7; font-size: 0.98rem; }
+  .breakdown { background: var(--slab); border: 1px solid var(--edge); padding: 1.3rem; margin-bottom: 1.4rem; }
+  .breakdown-label { font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--steel); font-weight: 800; margin-bottom: 1rem; }
+  .bd-row { display: grid; grid-template-columns: 1fr 110px 46px; gap: 0.7rem; align-items: center; margin-bottom: 0.7rem; font-size: 0.85rem; }
+  .bd-name { font-weight: 600; }
+  .bd-bar { height: 9px; background: rgba(29,31,36,0.1); overflow: hidden; }
+  .bd-fill { height: 100%; background: var(--steel); transition: width 0.4s; }
+  .bd-score { color: var(--fade); text-align: right; font-weight: 700; }
+  .essaypanel { background: var(--chalk); border: 1px solid var(--edge); border-left: 5px solid var(--moss); padding: 1.2rem 1.3rem; margin-top: 1.1rem; }
+  .essaypanel-label { font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--moss); font-weight: 800; margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.5rem; }
+  .essaypanel-label .tick { font-size: 0.85rem; }
+  .essaypanel p { font-size: 0.93rem; line-height: 1.75; margin-bottom: 0.7rem; text-indent: 1.1rem; }
+  .essaypanel p:first-of-type { text-indent: 0; }
+  .essaypanel p:last-child { margin-bottom: 0; }
+  .finalessay { background: var(--chalk); border: 1px solid var(--edge); padding: 1.6rem 1.5rem; margin: 1.1rem 0; }
+  .finalessay .fq { font-weight: 700; color: var(--spray); font-size: 0.98rem; margin-bottom: 1rem; line-height: 1.5; padding-bottom: 0.9rem; border-bottom: 2px solid var(--cement); }
+  .finalessay p { font-size: 0.96rem; line-height: 1.8; margin-bottom: 0.9rem; text-indent: 1.2rem; }
+  .finalessay p:first-of-type { text-indent: 0; }
+  .finalessay p:last-child { margin-bottom: 0; }
+  .qbox { background: var(--chalk); border: 1px solid var(--edge); border-left: 5px solid var(--spray); padding: 1.1rem 1.3rem; margin: 1.3rem 0 1.6rem; }
+  .qbox .qlabel { font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--spray); font-weight: 800; margin-bottom: 0.5rem; }
+  .qbox .qtext { font-size: 1.08rem; font-weight: 600; line-height: 1.55; }
+  .hidden { display: none !important; }
+  .footer { font-size: 0.76rem; color: var(--fade); margin-top: 2rem; padding-top: 1.3rem; border-top: 1px solid var(--edge); line-height: 1.65; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="top-bar hidden" id="top-bar">
+    <div class="top-meta"><span id="stage-name">The end of the Cold War</span><span class="top-count" id="step-count">Step 1</span></div>
+    <div class="track"><div class="fill" id="fill"></div></div>
+  </div>
+
+  <div id="start-screen">
+    <div class="header-block">
+      <div class="eyebrow">Kula Revise &middot; Grade 12 History &middot; The end of the Cold War</div>
+      <h1 class="masthead">Build the Essay</h1>
+      <div class="sub">Capstone &middot; NSC P2, May and June 2025, Question 6 &middot; Lesson 5 of 5</div>
+      <div class="rule"></div>
+    </div>
+    <div class="intro-box">
+      <div class="intro-label">Where We Are</div>
+      <p class="intro-text">This is a real NSC question from the May and June 2025 paper, and every point in the essay you are about to build comes off the official list the marker works from. You make eight decisions. Each one adds a paragraph to your answer, and by the end you are holding a complete 50-mark essay you assembled yourself.</p>
+    </div>
+    <div class="key-row">
+      <div class="key-item"><span class="chip chip-argue">Argue</span><span class="key-desc">Take a clear line of argument</span></div>
+      <div class="key-item"><span class="chip chip-evidence">Evidence</span><span class="key-desc">Back the case with specific facts</span></div>
+      <div class="key-item"><span class="chip chip-weigh">Weigh</span><span class="key-desc">Judge it, and say how far you agree</span></div>
+    </div>
+    <button class="btn-start" id="begin-btn"><span class="st">Start the lesson</span><span class="sa">&rarr;</span></button>
+    <div class="footer">About 25 minutes. Ten marked decisions. Have Lessons 1 to 4 behind you before you start this one.</div>
+  </div>
+
+  <div id="flow-screen" class="hidden">
+    <div class="card" id="flow-card"></div>
+    <div class="nav">
+      <button class="btn-secondary" id="back-btn">&larr; Back</button>
+      <button class="btn-primary" id="next-btn">Continue &rarr;</button>
+    </div>
+  </div>
+
+  <div id="results-screen" class="hidden">
+    <div class="header-block">
+      <div class="eyebrow">Series complete</div>
+      <h1 class="masthead" style="font-size: clamp(1.8rem,5.4vw,2.7rem);">Where You Stand</h1>
+      <div class="rule"></div>
+    </div>
+    <div class="score-row">
+      <div class="score-block"><div class="score-num"><span id="r-correct">0</span><span class="score-den">/<span id="r-total">0</span></span></div><div class="score-label">Argument Moves</div></div>
+      <div class="score-block"><div class="score-num"><span id="r-pct">0</span><span class="score-den">%</span></div><div class="score-label">Accuracy</div></div>
+      <div class="score-block"><div class="score-num red" id="r-band">-</div><div class="score-label">Standard</div></div>
+    </div>
+    <div class="grade-desc" id="r-desc"></div>
+    <div class="breakdown"><div class="breakdown-label">By Essay Skill</div><div id="r-breakdown"></div></div>
+    <div class="card">
+      <div class="stage-tag">What You Have Now</div>
+      <p>You have a full answer to a real NSC question, built decision by decision rather than copied.</p><p>The next step is not another lesson. It is a blank page, a pen and 45 minutes. Write this question out under time, without looking at the essay you built. Then compare the two and find out which paragraph you cannot yet produce from memory. That paragraph is your revision.</p><p class="pull">One last thing. Notice how often the option that lost marks was the one that simply told the story. Description is the most expensive habit in History. You have spent five lessons breaking it.</p>
+    </div>
+    <div class="nav" style="justify-content: center;"><button class="btn-primary" id="redo-btn">&#8635; Restart lesson</button></div>
+    <div class="footer">Grade 12 History, the end of the Cold War and a new world order: the events of 1989.</div>
+  </div>
+</div>
+
+<script>
+const QUESTION = "Mikhail Gorbachev's policies from the mid-1980s contributed to the emergence of a new political dispensation in South Africa. Do you agree with this statement? Use relevant historical evidence to support your line of argument. [50]";
+
+const ESSAY_SCREEN = {"label": "The Finished Answer", "heading": "Everything You Built, in Order", "intro": "This is the full essay, assembled from the eight decisions you just made. Every paragraph is one you chose.", "outro": "In the exam you would write this in your own words, and longer: about three pages. The shape, though, is exactly this. Stance in the introduction, four body paragraphs that each prove one thing, a counter-argument that you answer rather than dodge, and a conclusion that returns to the stance with its limit attached. Write it out by hand once, under time. That is the only way to find out whether you can do it in an exam room."};
+
+const BANDS = [
+  {
+    "min": 84,
+    "band": "7",
+    "desc": "Top-band work. You held one line of argument through eight decisions and answered the counter-argument instead of avoiding it. Now write it out under time."
+  },
+  {
+    "min": 70,
+    "band": "6",
+    "desc": "Strong. Check where you reached for the option that told the story. That is the gap between this and full marks, and it is a habit rather than a knowledge problem."
+  },
+  {
+    "min": 55,
+    "band": "5",
+    "desc": "You have the content and the argument is coming through in places. Rebuild the essay once more, slowly, reading each rejected option and asking what it failed to do."
+  },
+  {
+    "min": 40,
+    "band": "4",
+    "desc": "The evidence is there but it is being reported rather than used. Go back to Lesson 1 and Lesson 3, where the difference between arguing and describing is set out most directly."
+  },
+  {
+    "min": 0,
+    "band": "3",
+    "desc": "Do the four content lessons again before returning to this one. The capstone assumes them, and there is no shortcut through it."
+  }
+];
+
+const FLOW = [
+  {
+    "type": "narrative",
+    "stage": "Recognise",
+    "html": "<div class=\"stage-tag\">The Question</div><h2>This Is the Real Thing</h2><div class=\"qbox\"><div class=\"qlabel\">NSC History Paper 2, May and June 2025, Question 6</div><div class=\"qtext\">Mikhail Gorbachev's policies from the mid-1980s contributed to the emergence of a new political dispensation in South Africa. Do you agree with this statement? Use relevant historical evidence to support your line of argument. [50]</div></div><p>Fifty marks. About three pages. One hour if you are pacing the paper properly.</p><p>Every marker of this question works from the same official list of points, drawn up with the paper. You are not guessing what they want. The eight paragraphs you are about to build all come off that list.</p>"
+  },
+  {
+    "type": "narrative",
+    "stage": "Destabilise",
+    "html": "<div class=\"stage-tag\">Read the Wording</div><h2>Three Words That Set the Whole Task</h2><p><strong>'Do you agree'.</strong> This is not the same instruction as 'to what extent' or 'critically discuss'. It wants a position, stated in your introduction, before you have shown any evidence. A marker reading your first paragraph should already know which way your answer goes.</p><p><strong>'Contributed to'.</strong> Not caused, not created. The statement is already modest, which means the strongest answer agrees with it and then says precisely how much, rather than agreeing loudly or refusing outright.</p><p><strong>'From the mid-1980s'.</strong> Your range starts around 1985. The transition itself runs to 1994, but the argument you are being asked about is the link between Soviet policy and South African politics, so material on the TRC or the 1994 government of national unity is outside it and earns nothing.</p>"
+  },
+  {
+    "type": "question",
+    "stage": "Destabilise",
+    "level": "Weigh",
+    "q": "'Do you agree with this statement?' What does that wording demand that 'to what extent' does not?",
+    "options": [
+      "A stance stated openly in the introduction, before the evidence appears.",
+      "A balanced answer that avoids taking sides until the conclusion arrives.",
+      "A list of arguments for and against, left for the marker.",
+      "A yes or a no, with no room for any qualification."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. This wording asks you to commit and then defend. {opt1} holds the verdict back, which reads as indecision, and markers see a lot of it. {opt2} hands your job to the marker. {opt3} goes too far the other way. Committing is not the same as being absolute. You can agree and set a limit in one sentence."
+  },
+  {
+    "type": "question",
+    "stage": "Destabilise",
+    "level": "Argue",
+    "q": "Which of these belongs outside this essay?",
+    "options": [
+      "The Truth and Reconciliation Commission and its hearings in the 1990s.",
+      "Gorbachev's withdrawal of Soviet troops from Afghanistan by the start of 1989.",
+      "The unbanning of the ANC, the PAC and the SACP.",
+      "The 1985 debt crisis and the collapse of the rand."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. The TRC belongs to a different topic and a different question. Write about it well here and you still earn nothing. {opt1} is in range, because it explains why the Soviet Union was reforming. {opt2} is the event the statement is about. {opt3} is in range and useful, because it is how you show pressure building before 1989."
+  },
+  {
+    "type": "narrative",
+    "stage": "Act",
+    "html": "<div class=\"stage-tag\">How This Works</div><h2>Eight Decisions</h2><p>Each decision offers three versions of the same paragraph. One of them argues. One of them tells the story accurately and argues nothing. One takes a line the evidence will not support.</p><p>Choose, and the paragraph is added to your answer. The panel underneath grows as you go, so you can see the essay taking shape.</p><p class=\"pull\">The middle option is the dangerous one. It is always true, it is always relevant, and it is the single commonest reason a good candidate lands in the middle band.</p>"
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Argue",
+    "build": true,
+    "part": "Gorbachev's policies from the mid-1980s did contribute to the emergence of a new political dispensation in South Africa, but they contributed in a particular way that needs stating precisely. They did not create the pressure for change in South Africa: mass resistance, economic crisis and international isolation had been building that pressure for years. What perestroika and glasnost did was destroy the props that had allowed the South African stalemate to continue, striking both the National Party government and the ANC at the same moment and from opposite directions, so that negotiation became the rational choice for each of them at once. This essay will argue that the end of the Cold War set the timing and the terms of South Africa's transition rather than its necessity.",
+    "q": "Decision 1, your introduction. The marker should finish this paragraph knowing your position.",
+    "options": [
+      "Yes, with a qualification. Gorbachev's policies removed the props under apartheid's stalemate, they did not create the pressure.",
+      "Gorbachev introduced perestroika and glasnost in the Soviet Union, and a new political dispensation later emerged in South Africa.",
+      "No. Gorbachev's policies had no bearing on South Africa, whose transition was settled entirely by internal resistance alone."
+    ],
+    "correct": 0,
+    "explanation": "{opt0} agrees and immediately says how far, which is what this wording asks of you. {opt1} states both halves of the statement and joins them with 'later'. That commits to nothing, and a marker cannot award a line of argument you have not taken. {opt2} takes a firm line. You would then have to explain away De Klerk crediting Eastern Europe for the February 1990 unbannings, and you cannot."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Evidence",
+    "build": true,
+    "part": "By 1985 the Soviet Union was in serious trouble. Agricultural production was poor, consumer goods and housing were short, and people spoke openly of economic collapse, while the war in Afghanistan had cost over 20 000 Soviet lives and was draining both resources and morale. Mikhail Gorbachev took over in that year and introduced two policies to fix it. Perestroika restructured the economy, allowing private business, closing bankrupt state firms, withdrawing subsidies and encouraging foreign investment. Glasnost allowed people to criticise the government and the press to report and question openly. Neither policy was designed to end communism. Gorbachev intended the Communist Party to remain in control and to lead the reform itself.",
+    "q": "Decision 2, your context paragraph. The marker wants to know why the Soviet Union was reforming at all.",
+    "options": [
+      "By 1985 the Soviet economy was failing and Afghanistan draining it, so Gorbachev reformed to save the system.",
+      "Gorbachev became leader of the Soviet Union in 1985 and introduced two policies, perestroika and glasnost, in response.",
+      "The Soviet Union was strong in 1985, and Gorbachev's reforms were an unnecessary risk taken for no reason."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. Context is not scene setting. It is the opening move of your argument. The reforms had a purpose, and naming it lets you show later that they did the opposite. {opt1} names the policies without saying why they existed. {opt2} is contradicted by every economic figure from the period. A context paragraph that argues nothing earns you background marks and no more."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Argue",
+    "build": true,
+    "part": "The reforms then escaped the man who introduced them. Glasnost meant that the failure of perestroika could be discussed in public for the first time, at exactly the moment when Soviet output was falling and prices were rising sharply. In March 1989 Gorbachev told the leaders of the Eastern European communist governments that they could no longer depend on the Red Army to keep them in power. He issued no orders and moved no troops; he abandoned the Brezhnev Doctrine, the promise of Soviet force that had held Eastern Europe in place for forty years. Within nine months every one of those governments had fallen, the Berlin Wall was open, and in December 1989 Gorbachev and George Bush agreed that the Cold War was over. By the end of 1991 the Soviet Union itself had broken up. Communism had ceased to be a global threat.",
+    "q": "Decision 3, your first body paragraph. This is the link the whole essay depends on.",
+    "options": [
+      "Glasnost let people say the system had failed, so the reforms escaped Gorbachev and communism collapsed across Eastern Europe.",
+      "In 1989 communist governments fell across Eastern Europe, the Berlin Wall came down, and the Soviet Union broke up.",
+      "Gorbachev intended to end communism, and the collapse of Eastern Europe in 1989 was exactly what he planned."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. Your whole answer hangs on communism ceasing to be a threat. This paragraph has to explain how that happened, not report that it did. {opt1} is an accurate chronology that explains nothing, so it costs you more here than anywhere else in the essay. {opt2} contradicts what Gorbachev set out to do and unpicks the paragraph you have just built."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Evidence",
+    "build": true,
+    "part": "That collapse destroyed the National Party's central justification. For decades Pretoria had explained itself abroad not as a racial order but as the West's defence against Soviet expansion in southern Africa, and that argument had bought real things: Western tolerance, slower sanctions, and a way of presenting internal opposition as a foreign-directed conspiracy rather than as South Africans demanding rights. With communism discredited and the Soviet Union collapsing, the claim of a communist onslaught became unrealistic and South Africa could no longer rely on Western backing for its anti-communist stance. The West now pressed the government to negotiate with the ANC or face continued sanctions. FW de Klerk, who had replaced PW Botha in 1989, unbanned the ANC, the PAC and the South African Communist Party on 2 February 1990 and announced Mandela's release, and he was explicit that these measures had been brought about largely by the upheavals in Eastern Europe and the Soviet Union.",
+    "q": "Decision 4, your second body paragraph. What did the end of the Cold War take away from Pretoria?",
+    "options": [
+      "Without a communist threat the National Party lost the argument that bought it Western tolerance for forty years.",
+      "The National Party had long argued that it was defending the West against communist expansion in southern Africa.",
+      "Western governments had already abandoned South Africa by 1985, so the end of the Cold War changed nothing."
+    ],
+    "correct": 0,
+    "explanation": "{opt0} names what was lost and what it had been worth. That is the argument. {opt1} describes the doctrine without saying what happened to it, so it is true and inert. {opt2} would wreck your own essay. If the West had walked away in 1985, then 1989 could not have changed Pretoria's position. That contradiction costs you the whole paragraph."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Evidence",
+    "build": true,
+    "part": "Pretoria had also already begun retreating in the region, and that retreat gave it a working model. At Cuito Cuanavale in Angola, from late 1987 into 1988, South African forces were held back by a combined Cuban and Angolan force, and although both sides claimed the battle, what followed is not in dispute: South Africa reassessed its military position, agreed to withdraw from Angola and negotiated a settlement over South West Africa. SWAPO won the elections and the territory became independent Namibia in 1990. A movement Pretoria had fought for decades took power next door through a negotiated transfer, and the collapse the government had always predicted did not happen. It became evident that white minority rule could not be maintained indefinitely, and that a negotiated handover was survivable.",
+    "q": "Decision 5, your third body paragraph. Why does Namibia belong in an essay about Gorbachev?",
+    "options": [
+      "The regional retreat and Namibia's peaceful transfer to majority rule showed Pretoria that a handover could work.",
+      "South Africa withdrew from Angola, SWAPO won the 1990 elections, and South West Africa became independent Namibia.",
+      "Namibia's independence had nothing to teach Pretoria, since the two situations shared no features worth comparing at all."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. Namibia earns its place in your essay only if you say what it demonstrated. {opt1} is the sequence of events, and it leaves the marker to supply the point. They will not. {opt2} throws away material the official list of points expects, and the parallel is close enough that denying it costs you."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Evidence",
+    "build": true,
+    "part": "The same collapse struck the other side of the table. The Soviet Union had supplied most of the ANC's military and financial aid since the movement was driven into exile in the 1960s, and Umkhonto we Sizwe had been trained and armed through it. A bankrupt Soviet Union could no longer fund the ANC, and Gorbachev's foreign policy favoured negotiated settlements of regional conflicts rather than armed struggle, so the weapons stopped coming too. The armed struggle became far harder to sustain and the ANC showed itself willing to negotiate as the alternative. De Klerk read this as weakness and calculated that a movement cut off from Moscow would have to accept his terms. The result was that within months of each other, and for opposite reasons, both the National Party and the ANC concluded that negotiation had become the better option.",
+    "q": "Decision 6, your fourth body paragraph. Now bring in the other side of the table.",
+    "options": [
+      "The same collapse cut the ANC's money and weapons, so both sides chose negotiation for opposite reasons.",
+      "The Soviet Union had supplied most of the ANC's military and financial aid, and it was now bankrupt.",
+      "Losing Soviet backing left the ANC powerless, so it accepted whatever terms the National Party chose to offer."
+    ],
+    "correct": 0,
+    "explanation": "{opt0} brings in the ANC side and names the pattern your conclusion rests on. One cause, two opposite effects, the same result. {opt1} gives the fact and stops there. {opt2} is De Klerk's own reading of 1990, and the 1994 election result is the evidence against it. Writing it as your own view would be a serious error. A marker reads it as a misunderstanding of the outcome."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Weigh",
+    "build": true,
+    "part": "The statement cannot be accepted without limits, however, because South Africa was already being forced towards change before anything happened in Berlin. The United Democratic Front, formed in 1983, had built a mass movement that made much of the country close to ungovernable, and the states of emergency of 1985 and 1986 failed to restore control. In 1985 foreign banks refused to roll over South Africa's short-term debt, the rand collapsed, and business leaders flew to Lusaka to meet the ANC; American sanctions followed in 1986. Nelson Mandela had been in contact with the government since 1985 and met PW Botha in July 1989. Most decisively, the ANC set out its terms for a negotiated settlement in the Harare Declaration on 21 August 1989, eleven weeks before the Berlin Wall came down. Neither side began this road because of the Cold War.",
+    "q": "Decision 7, your counter-argument. This is where the top marks are, and where most answers go quiet.",
+    "options": [
+      "Against this, apartheid was already failing: the ANC set its negotiating terms in Harare eleven weeks before Berlin.",
+      "There was also resistance inside South Africa during the 1980s, including the United Democratic Front and the emergencies.",
+      "Since internal resistance existed, the Cold War made no difference and everything above should be set aside."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. A counter-argument has to be strong enough to be worth answering. Dated evidence is what makes it strong, and August 1989 comes before November 1989. {opt1} gestures at the other side without landing a blow, which reads as a box being ticked. {opt2} abandons the line you spent six paragraphs building. An essay that argues against itself here cannot recover in its conclusion."
+  },
+  {
+    "type": "question",
+    "stage": "Act",
+    "level": "Weigh",
+    "build": true,
+    "part": "The statement therefore holds, with its limit stated. Gorbachev's policies did contribute to the new political dispensation in South Africa, and the contribution was substantial: they destroyed the government's justification for apartheid abroad, removed the ANC's material capacity to fight, and pushed both sides towards the table within months of each other. But they acted on a situation that South Africans had already made unsustainable through resistance, and on a movement that had already committed itself to negotiation. The end of the Cold War set the timing and the terms of South Africa's transition. It did not set its necessity.",
+    "q": "Decision 8, your conclusion. Return to the stance and attach the limit.",
+    "options": [
+      "So the statement holds, with a limit: Gorbachev's policies set the timing and the terms, not the necessity.",
+      "In conclusion, many factors contributed to the new political dispensation that emerged in South Africa after 1990.",
+      "In conclusion, Gorbachev's policies alone brought apartheid to an end and South Africans played only a minor part."
+    ],
+    "correct": 0,
+    "explanation": "{opt0}. Your conclusion should be recognisable as the answer to the question asked, so return to the wording of the statement. {opt0} does that, and it carries the limit you set in the counter-argument. {opt1} is the sentence markers see most often, and it adds nothing to your introduction. {opt2} is stronger than your evidence, and it hands away the point about internal pressure you have just proved."
+  },
+  {
+    "type": "essay",
+    "stage": "Transfer"
+  },
+  {
+    "type": "narrative",
+    "stage": "Transfer",
+    "html": "<div class=\"stage-tag\">Beyond the Exam</div><h2>Who Gets the Credit</h2><p>Your answer gives real weight to something that happened four thousand kilometres away. It also refuses to let that thing take the credit for what South Africans did.</p><p>Holding both at once is harder than picking one. It is also why this question is worth fifty marks.</p><p>Most arguments you meet will offer you a single tidy cause. Adding the second cause usually costs you one more sentence.</p>"
+  }
+];
+
+const DIFF = {
+  Argue:{ label:"Argue &middot; line of argument", cls:"chip-argue" },
+  Evidence:{ label:"Evidence &middot; back it up", cls:"chip-evidence" },
+  Weigh:{ label:"Weigh &middot; to what extent", cls:"chip-weigh" }
+};
+const KIND = {
+  everyday:{ label:"Your instinct", cls:"chip-instinct" },
+  reveal:{ label:"Plot twist", cls:"chip-instinct" }
+};
+const LEVELS = ["Argue","Evidence","Weigh"];
+
+const state = { idx:0, answers:{}, revealed:{}, order:{} };
+const questionIds = FLOW.map((f,i)=>f.type==="question"?i:null).filter(i=>i!==null);
+const assessedIds = FLOW.map((f,i)=>(f.type==="question"&&f.level)?i:null).filter(i=>i!==null);
+const buildIds = FLOW.map((f,i)=>f.build?i:null).filter(i=>i!==null);
+const totalQ = assessedIds.length;
+
+const startScreen=document.getElementById("start-screen");
+const flowScreen=document.getElementById("flow-screen");
+const resultsScreen=document.getElementById("results-screen");
+const topBar=document.getElementById("top-bar");
+const card=document.getElementById("flow-card");
+const backBtn=document.getElementById("back-btn");
+const nextBtn=document.getElementById("next-btn");
+
+document.getElementById("begin-btn").addEventListener("click",()=>{
+  startScreen.classList.add("hidden"); flowScreen.classList.remove("hidden"); topBar.classList.remove("hidden"); render();
+});
+backBtn.addEventListener("click",()=>{ if(state.idx>0){state.idx--;render();} });
+nextBtn.addEventListener("click",()=>{ if(state.idx<FLOW.length-1){state.idx++;render();} else {showResults();} });
+document.getElementById("redo-btn").addEventListener("click",()=>location.reload());
+
+function render(){
+  const item=FLOW[state.idx];
+  document.getElementById("step-count").textContent=`Step ${state.idx+1} of ${FLOW.length}`;
+  document.getElementById("fill").style.width=((state.idx+1)/FLOW.length*100)+"%";
+  backBtn.disabled=state.idx===0;
+  if(item.type==="question") renderQuestion(item);
+  else if(item.type==="essay") renderEssay();
+  else if(item.type==="source") renderSource(item);
+  else renderStatic(item);
+  nextBtn.disabled = item.type==="question" ? !state.revealed[state.idx] : false;
+  nextBtn.innerHTML = state.idx===FLOW.length-1 ? "See results &rarr;" : "Continue &rarr;";
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function essayParts(uptoIdx){
+  return buildIds.filter(i=>i<=uptoIdx && state.revealed[i]).map(i=>FLOW[i].part);
+}
+function renderEssay(){
+  const parts=buildIds.map(i=>FLOW[i].part);
+  card.innerHTML=`<div class="stage-tag">${ESSAY_SCREEN.label}</div><h2>${ESSAY_SCREEN.heading}</h2>
+    <p>${ESSAY_SCREEN.intro}</p>
+    <div class="finalessay"><div class="fq">${QUESTION}</div>${parts.map(p=>`<p>${p}</p>`).join("")}</div>
+    <p style="margin-top:1.1rem;font-style:italic;color:var(--fade);">${ESSAY_SCREEN.outro}</p>`;
+}
+function renderStatic(item){ card.innerHTML=item.html; bindToggles(); }
+function renderSource(item){
+  let html=item.html;
+  if(item.source){
+    const s=item.source;
+    const ev = s.evidence ? `<span class="evtag ${s.evidence.cls}">${s.evidence.label}</span>` : "";
+    html+=`<div class="source"><div class="source-attr">${s.attr}</div>
+      <div class="source-body">${s.body}</div>${ev}
+      <div><button class="toggle-btn" data-toggle>What does this actually mean?</button></div>
+      <div class="toggle-body" data-toggle-body>${s.toggle}</div></div>`;
+  }
+  card.innerHTML=html;
+  bindToggles();
+}
+function bindToggles(){
+  card.querySelectorAll("[data-toggle]").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const body=btn.closest(".source").querySelector("[data-toggle-body]");
+      body.classList.toggle("open");
+      btn.textContent=body.classList.contains("open")?"Hide":"What does this actually mean?";
+    });
+  });
+}
+function optLetters(text, order){
+  return String(text).replace(/\{opt(\d+)\}/g, (m, n) => {
+    const pos = order.indexOf(parseInt(n, 10));
+    return pos < 0 ? m : "option " + String.fromCharCode(65 + pos);
+  }).replace(/(^|[.!?:]\s+)option ([A-D])/g, (m, lead, letter) => lead + "Option " + letter);
+}
+function renderQuestion(item){
+  const gi=state.idx;
+  if(!state.order[gi]){
+    const arr=item.options.map((_,i)=>i);
+    for(let i=arr.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); const t=arr[i]; arr[i]=arr[j]; arr[j]=t; }
+    state.order[gi]=arr;
+  }
+  const order=state.order[gi];
+  const revealed=state.revealed[gi];
+  const selected=state.answers[gi];
+  const tag = item.level ? DIFF[item.level] : KIND[item.kind];
+  let optsHtml="";
+  order.forEach((orig,pos)=>{
+    let cls="option"; let mark="";
+    if(revealed){
+      if(orig===item.correct){cls+=" correct"; mark='<span class="opt-mark">&#10003;</span>';}
+      else if(orig===selected){cls+=" wrong"; mark='<span class="opt-mark">&#10007;</span>';}
+      else cls+=" dimmed";
+    } else if(orig===selected) cls+=" selected";
+    optsHtml+=`<button class="${cls}" data-opt="${orig}" ${revealed?"disabled":""}>
+      <span class="opt-letter">${String.fromCharCode(65+pos)}</span>
+      <span class="opt-text">${item.options[orig]}</span>${mark}</button>`;
+  });
+  const explLabel = item.level ? "Why" : "What That Shows";
+  const expl = optLetters(item.explanation, order);
+  let panel="";
+  if(revealed && item.build){
+    panel=`<div class="essaypanel"><div class="essaypanel-label"><span class="tick">&#10003;</span> Added to Your Essay</div>`
+      + essayParts(gi).map(p=>`<p>${p}</p>`).join("") + `</div>`;
+  }
+  card.innerHTML=`<div class="stage-tag"><span class="chip ${tag.cls}">${tag.label}</span></div>
+    <div class="q-text">${item.q}</div><div class="options">${optsHtml}</div>
+    ${revealed?`<div class="explanation"><div class="expl-label">${explLabel}</div><div class="expl-text">${expl}</div></div>`:""}
+    ${panel}`;
+  if(!revealed){
+    card.querySelectorAll("[data-opt]").forEach(b=>{
+      b.addEventListener("click",()=>{ state.answers[gi]=parseInt(b.dataset.opt); state.revealed[gi]=true; render(); });
+    });
+  }
+}
+function showResults(){
+  flowScreen.classList.add("hidden"); topBar.classList.add("hidden"); resultsScreen.classList.remove("hidden");
+  let correct=0;
+  assessedIds.forEach(i=>{ if(state.answers[i]===FLOW[i].correct) correct++; });
+  const pct=totalQ?Math.round((correct/totalQ)*100):0;
+  let band="-",desc="";
+  for(const b of BANDS){ if(pct>=b.min){ band=b.band; desc=b.desc; break; } }
+  document.getElementById("r-correct").textContent=correct;
+  document.getElementById("r-total").textContent=totalQ;
+  document.getElementById("r-pct").textContent=pct;
+  document.getElementById("r-band").textContent=band;
+  document.getElementById("r-desc").textContent=desc;
+  const bd=document.getElementById("r-breakdown"); bd.innerHTML="";
+  LEVELS.forEach(level=>{
+    const ids=assessedIds.filter(i=>FLOW[i].level===level);
+    const got=ids.filter(i=>state.answers[i]===FLOW[i].correct).length;
+    const p=ids.length?Math.round(got/ids.length*100):0;
+    bd.innerHTML+=`<div class="bd-row"><div class="bd-name">${level}</div>
+      <div class="bd-bar"><div class="bd-fill" style="width:${p}%"></div></div>
+      <div class="bd-score">${got}/${ids.length}</div></div>`;
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
+</body>
+</html>
