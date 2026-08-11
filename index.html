@@ -497,7 +497,7 @@ function renderCover(){
   stage.innerHTML='<div class="cover"><div class="cover-eyebrow">'+COVER.eyebrow+'</div>'+
     '<h1 class="cover-title">'+esc(COVER.title)+'</h1><div class="flourish"></div>'+
     '<div class="cover-line" id="cover-line">'+lines+'</div>'+
-    '<button class="btn-begin" id="begin-btn">Begin <span class="sa">&rarr;</span></button></div>';
+    '<button class="btn-primary btn-begin" id="begin-btn">Begin <span class="sa">&rarr;</span></button></div>';
   var sp=[].slice.call(document.querySelectorAll('#cover-line span'));
   sp.forEach(function(x,i){setTimeout(function(){x.classList.add('vis');}, 300+i*450);});
   document.getElementById('begin-btn').onclick=next;
