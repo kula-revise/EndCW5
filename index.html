@@ -244,11 +244,11 @@
   .memory p { font-size: 0.95rem; line-height: 1.7; margin-bottom: 0.6rem; }
   .memory p:last-child { margin-bottom: 0; }
 
-  /* ================= RUNNING SUMMARY ================= */
-  .essaypanel { background: var(--tint); border-top: 1px solid var(--tint-rule); padding: 1.15rem 1.2rem; margin-top: 1.1rem; }
-  .essaypanel p { font-size: 0.92rem; line-height: 1.72; margin-bottom: 0.7rem; text-indent: 1.1rem; }
-  .essaypanel p:first-of-type { text-indent: 0; }
-  .essaypanel p:last-child { margin-bottom: 0; }
+  
+  
+  
+  
+  
   .finalessay { background: var(--white); border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); padding: 1.5rem 1.4rem; margin: 1.1rem 0; }
   .finalessay .fq {  font-weight: 600; color: var(--flame); font-size: 0.97rem; margin-bottom: 1rem; line-height: 1.5; padding-bottom: 0.9rem; border-bottom: 1px solid var(--hair); }
   .finalessay p { font-size: 0.96rem; line-height: 1.78; margin-bottom: 0.9rem; text-indent: 1.2rem; }
@@ -349,6 +349,8 @@
 </style>
 </head>
 <body>
+<script>/* kula: LMS embed events. "completed" fires once, when the learner reaches the closing screen. "advance" fires from the final button. */
+(function(){var sentCompleted=false;window.kulaEmbed=function(ev){if(ev==="completed"){if(sentCompleted)return;sentCompleted=true;}try{window.parent.postMessage({type:"lms-embed-event",version:"1.0",payload:{event:ev}},"*");}catch(e){}};})();</script>
 <button id="kula-mode-toggle" type="button" onclick="kulaToggle()" aria-label="Switch between light and dark mode"><span id="kmt-icon"></span><span id="kmt-label"></span></button>
 <div class="container"><div id="stage"></div></div>
 <script>
@@ -558,7 +560,9 @@ function renderFrame(){
   stage.innerHTML='<div class="card"><div class="stage-tag">Your writing frame</div><h2>Take this away and write it up</h2>'+
     '<p class="cap-intro">This is the shape of a top essay: a clear line, three paragraphs each with a claim and its evidence, and a verdict that decides. You built every choice in it.</p>'+
     '<div class="frame">'+f+'</div>'+
-    '<div class="writeup"><b>Now write the essay in full, in your own words.</b><div class="wsub">The frame gives you the shape and the facts. Turning these notes into full sentences, in the exam, is the part only you can do.</div></div></div>';
+    '<div class="writeup"><b>Now write the essay in full, in your own words.</b><div class="wsub">The frame gives you the shape and the facts. Turning these notes into full sentences, in the exam, is the part only you can do.</div></div><div class="cap-actions" style="margin-top:1.4rem"><button class="btn-primary" id="cap-advance">Continue to What Stuck&nbsp;&rarr;</button></div></div>';
+  document.getElementById('cap-advance').onclick=function(){ kulaEmbed('advance'); };
+  kulaEmbed('completed');
 }
 
 render();
