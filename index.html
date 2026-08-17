@@ -9,55 +9,55 @@
   /* ================= PALETTE AND TYPE ================= */
   :root {
       /* End of the Cold War: Border Grid. Dark ground, two accents split by job. */
-      --paper: #171A1E;     /* page ground */
-      --sheet: #1F242A;     /* card sheet */
-      --white: #272D34;     /* inner panels, sources, explanations */
-      --ink: #ECEEF0;       /* text */
-      --ink-soft: #9BA4AD;
-      --flame: #D8574A;     /* accent one: navigation and emphasis (amethyst) */
-      --on-flame: #171A1E;  /* text on a solid accent-one block */
-      --leaf: #7E97AC;      /* accent two: anything the learner earned (steel) */
-      --on-leaf: #171A1E;   /* text on a solid accent-two block */
-      --hair: rgba(236,238,240,0.10);
-      --rail: rgba(236,238,240,0.16);
-      --tint: rgba(216,87,74,0.10);
-      --tint-rule: rgba(216,87,74,0.42);
-      --slot-bg: rgba(236,238,240,0.04);
-      --chipA-bg: rgba(156,107,230,0.20); --chipA-fg: #C3A2F0;
-      --chipB-bg: rgba(174,164,188,0.16); --chipB-fg: #C6BCD4;
-      --chipN-bg: rgba(241,236,245,0.07); --chipN-fg: #B4A9C2;
-      --ev3-bg: rgba(126,151,172,0.16); --ev3-fg: #7E97AC;
-      --ok-bg: rgba(126,151,172,0.16);
-      --bad-bg: rgba(216,87,74,0.12); --bad-border: #7A5A56;
-      --btn-hover: #C24A3E;
-      --start-hover: #1F252B;
+      --paper: #081428;     /* page ground */
+      --sheet: #0F2038;     /* card sheet */
+      --white: #17304F;     /* inner panels, sources, explanations */
+      --ink: #E6EEFA;       /* text */
+      --ink-soft: #8A9CB6;
+      --flame: #6FB0FF;     /* accent one: navigation and emphasis (amethyst) */
+      --on-flame: #081428;  /* text on a solid accent-one block */
+      --leaf: #4ADE80;      /* accent two: anything the learner earned (steel) */
+      --on-leaf: #081428;   /* text on a solid accent-two block */
+      --hair: rgba(230,238,250,0.10);
+      --rail: rgba(230,238,250,0.16);
+      --tint: rgba(111,176,255,0.10);
+      --tint-rule: rgba(111,176,255,0.42);
+      --slot-bg: rgba(230,238,250,0.04);
+      --chipA-bg: rgba(111,176,255,0.20); --chipA-fg: #A8CEFF;
+      --chipB-bg: rgba(151,169,194,0.16); --chipB-fg: #B7C6DC;
+      --chipN-bg: rgba(230,238,250,0.07); --chipN-fg: #A3B4CC;
+      --ev3-bg: rgba(74,222,128,0.16); --ev3-fg: #4ADE80;
+      --ok-bg: rgba(74,222,128,0.16);
+      --bad-bg: rgba(151,169,194,0.12); --bad-border: #8095B0;
+      --btn-hover: #4C97F0;
+      --start-hover: #12294A;
       --sans: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       --serif: Georgia, 'Times New Roman', serif;
     }
   /* Bright light inversion, kept but not exposed. Add class "bright" to body to switch. */
     body.bright {
-      --paper: #D9D5CE;
-      --sheet: #F2F0EB;
-      --white: #FFFFFF;
-      --ink: #1D1F24;
-      --ink-soft: #7B786F;
-      --flame: #B7362A;
+      --paper: #DBE6F5;
+      --sheet: #F5F9FF;
+      --white: #C6D8EF;
+      --ink: #0D1826;
+      --ink-soft: #495A6E;
+      --flame: #0B52B8;
       --on-flame: #FFFFFF;
-      --leaf: #4C5A66;
+      --leaf: #0F6839;
       --on-leaf: #FFFFFF;
-      --hair: rgba(29,31,36,0.16);
-      --rail: rgba(29,31,36,0.12);
-      --tint: rgba(183,54,42,0.08);
-      --tint-rule: rgba(183,54,42,0.35);
+      --hair: rgba(13,24,38,0.16);
+      --rail: rgba(13,24,38,0.12);
+      --tint: rgba(11,82,184,0.08);
+      --tint-rule: rgba(11,82,184,0.35);
       --slot-bg: rgba(255,255,255,0.55);
-      --chipA-bg: #E9DEF7; --chipA-fg: #5A2E9A;
-      --chipB-bg: #E6E2EC; --chipB-fg: #4A4358;
-      --chipN-bg: #E7E2DA; --chipN-fg: #4E4658;
-      --ev3-bg: rgba(76,90,102,0.14); --ev3-fg: #3E4A54;
-      --ok-bg: rgba(76,90,102,0.12);
-      --bad-bg: rgba(183,54,42,0.06); --bad-border: #B89A96;
-      --btn-hover: #9E2E24;
-      --start-hover: #0E1013;
+      --chipA-bg: #D8E6FA; --chipA-fg: #06459A;
+      --chipB-bg: #E1E8F2; --chipB-fg: #3B4A5E;
+      --chipN-bg: #E4EAF2; --chipN-fg: #45536A;
+      --ev3-bg: #D9EFE2; --ev3-fg: #0B4E2A;
+      --ok-bg: rgba(15,104,57,0.13);
+      --bad-bg: rgba(13,24,38,0.06); --bad-border: #8FA0B8;
+      --btn-hover: #06459A;
+      --start-hover: #071018;
     }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   .container { max-width: 720px; margin: 0 auto; }
@@ -291,7 +291,7 @@
   .btn-small:disabled { opacity: 0.35; cursor: not-allowed; }
 
   /* ================= POP UPS ================= */
-  .modal-back { position: fixed; inset: 0; background: rgba(8,16,28,0.72); display: flex; align-items: center; justify-content: center; padding: 1.2rem; z-index: 50; }
+  .modal-back { position: fixed; inset: 0; background: rgba(5,14,28,0.72); display: flex; align-items: center; justify-content: center; padding: 1.2rem; z-index: 50; }
   .modal { background: var(--sheet); border-top: 3px solid var(--flame); max-width: 24rem; width: 100%; padding: 1.6rem 1.5rem 1.5rem; text-align: center; }
   .modal-label { font-family: var(--sans); font-size: 0.64rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--leaf); font-weight: 600; margin-bottom: 0.7rem; }
   .modal h3 { font-family: var(--sans); font-size: 1.2rem; font-weight: 600; margin-bottom: 0.7rem; }
@@ -339,16 +339,16 @@ body { padding-bottom: 5.25rem !important; } #kula-mode-toggle, .mode-toggle { m
 .cap-actions{display:flex;justify-content:flex-end;}
 
     /* eocw-btn-fix: dark-mode primary/begin buttons = darker red + white text for AA */
-    body:not(.bright) .btn-primary, body:not(.bright) .btn-begin { background: #B7362A !important; }
+    body:not(.bright) .btn-primary, body:not(.bright) .btn-begin { background: #0B52B8 !important; }
     body:not(.bright) .btn-primary, body:not(.bright) .btn-begin,
     body:not(.bright) .btn-primary *, body:not(.bright) .btn-begin * { color: #FFFFFF !important; }
 
 
 /* toggle positioning from lesson block 2 */
-#kula-mode-toggle{position:fixed;bottom:1.1rem;right:1.1rem;z-index:9999;display:inline-flex;align-items:center;gap:.45em;padding:.48rem .82rem;border-radius:999px;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;-webkit-tap-highlight-color:transparent;line-height:1;background:#221C16;color:#C9BBA8;border:1px solid rgba(255,245,235,.18);box-shadow:0 2px 9px rgba(0,0,0,.32);transition:transform .15s ease,box-shadow .15s ease}#kula-mode-toggle:hover{transform:translateY(-1px)}#kula-mode-toggle svg{width:15px;height:15px;display:block;flex:0 0 auto}body.bright #kula-mode-toggle{background:#F4F6F8;color:#525C66;border-color:rgba(23,33,43,.15);box-shadow:0 2px 8px rgba(0,0,0,.10)}
+#kula-mode-toggle{position:fixed;bottom:1.1rem;right:1.1rem;z-index:9999;display:inline-flex;align-items:center;gap:.45em;padding:.48rem .82rem;border-radius:999px;font-family:var(--sans);font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;-webkit-tap-highlight-color:transparent;line-height:1;background:#0F2038;color:#8A9CB6;border:1px solid rgba(230,238,250,.18);box-shadow:0 2px 9px rgba(0,0,0,.32);transition:transform .15s ease,box-shadow .15s ease}#kula-mode-toggle:hover{transform:translateY(-1px)}#kula-mode-toggle svg{width:15px;height:15px;display:block;flex:0 0 auto}body.bright #kula-mode-toggle{background:#E8EEF7;color:#45566B;border-color:rgba(13,24,38,.15);box-shadow:0 2px 8px rgba(0,0,0,.10)}
 </style>
 <style>/* kula: contrast corrections. Measured on the painted result in both modes, on every surface the control appears on. Colour only. */
-body:not(.bright) .evrow.use .evtoggle { background-color: #DA6054 !important; }
+body:not(.bright) .evrow.use .evtoggle { background-color: #4C97F0 !important; }
 </style>
 </head>
 <body class="bright">
